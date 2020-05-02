@@ -4,6 +4,5 @@
 * IEEE-CIS Fraud Detection：Vesta欺诈交易检测 – 异常检测   / Top2%
 
 # 天池
-### Repeat Buyers Prediction
 存储天池比赛代码
 * Repeat Buyers Prediction：天猫复购用户预测推荐 / Top2.5%
