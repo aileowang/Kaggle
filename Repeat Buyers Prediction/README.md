@@ -1,3 +1,3 @@
-Repeat Buyers Prediction：天猫复购用户预测推荐 / 0.6833（Top2.5%）
+Repeat Buyers Prediction：天猫复购用户预测推荐 / score:0.6859096（Top2%）
 
 参考 https://zhuanlan.zhihu.com/p/137905297
