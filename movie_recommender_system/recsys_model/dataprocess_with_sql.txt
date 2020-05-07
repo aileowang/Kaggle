@@ -1,0 +1,78 @@
+-- 根据rectime排序从最近开始，给定用户ID，即查询用户推荐的电影； 其中recmovie表中是推荐的电影列表
+select * from recmovie inner JOIN movie on recmovie.movieid = movie.id and recmovie.userid=1 and movie.enable = 1 ORDER BY rectime DESC, rat DESC limit 0, 30
+
+-- delete from recmovie where movieid not in (select id from movie)
+
+select * from comment_new limit 0, 100
+
+select *,MD5(creator) as userid from comment limit 0,100
+
+-- 更新userid语句
+-- update comment_new,comment set comment_new.userid=md5(comment.creator) from comment where comment_new.id=comment.id
+select count(*) from comment_new
+-- 查看是否重复ID
+select count(DISTINCT id) from comment
+-- 处理userid
+update comment_new s set userid = (select md5(creator) from comment where id = s.id);
+-- 检查异常数据
+select count(*) from comment where creator='' or creator is null
+-- 检查数据处理的正确性
+select count(*),MD5(creator) as userid_c,userid, MOVIEID, creator from comment_new where creator='windyxp' group by userid_c
+select count(*),MD5(creator) as userid_c,userid, MOVIEID, creator from comment_new where creator='windyxp'
+select MD5(creator) as userid_c,userid, MOVIEID, creator from comment_new where creator='windyxp' 
+-- 查看评分的幅度
+select max(rating) from comment
+-- 处理comment抓取的数据
+select count(*) from comment where comment.MOVIEID in (select id from movie)
+
+select count(*) from movie
+-- 删除无用数据
+-- delete  from comment where comment.MOVIEID not in (select id from movie)
+
+select count(*) as cnt,creator from comment where creator not like '%已注销%' group by creator order by cnt desc limit 0,100
+select * from comment_new limit 0, 100
+select * from movie limit 0, 100
+select * from movie where id = 1294829
+select count(*) from comment_new where creator='妖怪dodo' 
+select * from comment_new where creator='妖怪dodo' 
+select * from comment_new where creator='妖怪dodo'  order by time
+select * from comment_new where creator='妖怪dodo'  group by content, movieid order by time
+select * from comment_new where creator='米粒'  order by time
+select * from comment_new where creator='米粒'  group by content, movieid order by time
+
+select * from comment_new where creator='麦克阿瑟'  group by content, movieid order by time
+select * from comment_new where creator='麦克阿瑟'  order by time
+
+
+select sum(rating)/count(rating) from comment_new where creator='妖怪dodo'
+
+select * from comment_new group by content, movieid limit 500,100
+-- select avg(rating) from comment where creator = '麦克阿瑟'
+-- 中位数，平均数，最大评分，最小评分
+select count(DISTINCT userid) from comment_new
+select * from movie limit 0,100
+
+select * from system_user
+select * from userproex
+select count(*) from userproex where userid='12'
+select * from userproex
+select DISTINCT userid from comment_new where userid is not null
+select rating from comment_new where userid='0a87619cd22313468311d7077dd8a35c'
+select max(rating) as rmax, min(rating) as rmin, avg(rating) as ravg, count(rating) as rcount, sum(rating) as rsum from comment_new where userid='0a87619cd22313468311d7077dd8a35c' 
+select count(*) from userproex
+-- 统计特征
+-- delete from userproex_new
+-- INSERT INTO userproex_new (userid, rmax, rmin, ravg, rcount, rsum) (select userid, max(rating) as rmax, min(rating) as rmin, avg(rating) as ravg, count(rating) as rcount, sum(rating) as rsum from comment_new group by userid having userid is not null)
+
+select * from userproex_new limit 0,100
+
+select * from userproex where userid='00000bc601790de1bafd1914e2cd9abb'
+
+select count(*) from userproex_new where rmedian>0
+
+select userid from userproex_new where rmedian=0
+
+select * from comment_new where movieid='10533913' limit 0,100
+
+select count(*) from movie
+
