@@ -5,4 +5,4 @@
 
 # 天池
 存储天池比赛代码
-* Repeat Buyers Prediction：天猫复购用户预测推荐 / Top2.5%
+* Repeat Buyers Prediction：天猫复购用户预测推荐 / Top2%
