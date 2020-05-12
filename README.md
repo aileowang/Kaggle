@@ -6,3 +6,5 @@
 # 天池
 存储天池比赛代码
 * Repeat Buyers Prediction：天猫复购用户预测推荐 / Top2%
+
+更多分享见专栏：https://www.zhihu.com/people/wang-76-67
